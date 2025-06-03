@@ -102,18 +102,9 @@ class HomeController extends Controller
     function index(Request $request): View
     {
         if ($request->action === "search" && $request->page === "home") {
-            // return view("home", [
-            //     "categories" => Categories::all(),
-            //     "sante" => null,
-            //     "informatique" => null,
-            //     "technique" => null,
-            //     "autre" => null,
-            //     "searchResults" => Materiels::where("libelle", "LIKE", (string) "%" . $request->search . "%")->get(),
-            //     "searchResultsCount" => Materiels::where("libelle", "LIKE", (string) "%" . $request->search . "%")->count(),
-            // ]);
             return view("home", [
                 "categories" => Categories::all(),
-                "materiels" => Materiels::latest()->get(),
+                "materiels" => Materiels::where("etat", "Disponible")->latest()->get(),
                 "searchs" => Materiels::join("categories", function (JoinClause $join) use ($request) {
                     $join->on("categories.id", "=", "materiels.categories_id")
                         ->where("categories.intitule", "like", (string) "%" . $request->search . "%")
@@ -124,7 +115,7 @@ class HomeController extends Controller
         if ($request->action === "filter" && $request->page === "home") {
             return view("home", [
                 "categories" => Categories::all(),
-                "materiels" => Materiels::latest()->get(),
+                "materiels" => Materiels::where("etat", "Disponible")->latest()->get(),
                 "searchs" => Materiels::join("categories", function (JoinClause $join) use ($request) {
                     $join->on("categories.id", "=", "materiels.categories_id")
                         ->where("categories.intitule", "like", (string) "%" . $request->search . "%");
@@ -134,7 +125,7 @@ class HomeController extends Controller
 
         return view("home", [
             "categories" => Categories::all(),
-            "materiels" => Materiels::latest()->get(),
+            "materiels" => Materiels::where("etat", "Disponible")->latest()->get(),
             "searchs" => null,
         ]);
     }

@@ -56,21 +56,29 @@ class OffloadController extends Controller
                     Cours::create([
                         "intitule" => $datas["cours"],
                     ]);
+
                     sleep(1);
                     $cours = Cours::where("intitule", $datas["cours"])
                         ->get();
 
-                    if (!isNumeric($etudiant[0]->id) || !isNumeric($cours[0]->id)) {
+                    if (!isNumeric($etudiant->first()->id) || !isNumeric($cours->first()->id)) {
                         return redirect()->back()->with("error", "Une erreur s'est produite");
                     }
 
+                    Materiels::where("libelle", $request->materiel)
+                        ->update(["etudiant_id" => $etudiant->first()->id]);
+
                     Etudiants_cours::create([
-                        "etudiants_id" => $etudiant[0]->id,
-                        "cours_id" => $cours[0]->id,
+                        "etudiants_id" => $etudiant->first()->id,
+                        "cours_id" => $cours->first()->id,
+                        "debut" => $datas["debut"],
+                        "fin" => $datas["fin"],
+                        "duree" => $endHour - $beginHour. "h",
                     ]);
+
                     DB::select("update materiels set etat = ? where libelle = ?", ["Indisponible", $request->materiel]);
 
-                    $time = $endHour - $beginHour;
+                    $time = $endHour - $beginHour. "h";
 
                     return redirect()->route("home")->with("message", "{$request->materiel} doit être retourné dans {$time} heures.");
                 }
@@ -109,17 +117,23 @@ class OffloadController extends Controller
                     $cours = Cours::where("intitule", $datas["third-step-cours"])
                         ->get();
 
-                    if (!isNumeric($etudiant[0]->id) || !isNumeric($cours[0]->id)) {
+                    if (!isNumeric($etudiant->first()->id) || !isNumeric($cours->first()->id)) {
                         return redirect()->back()->with("error", "Une erreur s'est produite");
                     }
 
+                    Materiels::where("libelle", $request->materiel)
+                        ->update(["etudiant_id" => $etudiant->first()->id]);
+
                     Etudiants_cours::create([
-                        "etudiants_id" => $etudiant[0]->id,
-                        "cours_id" => $cours[0]->id,
+                        "etudiants_id" => $etudiant->first()->id,
+                        "cours_id" => $cours->first()->id,
+                        "debut" => $datas["third-step-debut"],
+                        "fin" => $datas["third-step-fin"],
+                        "duree" => $endHour - $beginHour. "h",
                     ]);
                     DB::select("update materiels set etat = ? where libelle = ?", ["Indisponible", $request->materiel]);
 
-                    $time = $endHour - $beginHour;
+                    $time = $endHour - $beginHour. "h";
 
                     return redirect()->route("home")->with("message", "{$request->materiel} doit être retourné dans {$time} heures.");
                 }
@@ -155,11 +169,12 @@ class OffloadController extends Controller
                     $specialite = Specialites::where("intitule", $datas["fourth_step_specialite"])
                         ->get();
 
+
                     Etudiants::create([
                         "nom" => $datas["fourth-step-nom"],
                         "matricule" => $datas["fourth-step-matricule"],
-                        "specialite_id" => $specialite[0]->id,
-                        "responsable_id" => $specialite[0]->responsable_id,
+                        "specialite_id" => $specialite->first()->id,
+                        "responsable_id" => $specialite->first()->responsable_id,
                         "niveau" => $datas["fourth-step-niveau"],
                         "statut" => "Etudiant",
                     ]);
@@ -174,20 +189,27 @@ class OffloadController extends Controller
 
                     sleep(1);
 
+                    Materiels::where("libelle", $request->materiel)
+                        ->update(["etudiant_id" => $etudiant->first()->id]);
+
                     $cours = Cours::where("intitule", $datas["fourth-step-cours"])
                         ->get();
 
-                    if (!isNumeric($etudiant[0]->id) || !isNumeric($cours[0]->id)) {
+                    if (!isNumeric($etudiant->first()->id) || !isNumeric($cours->first()->id)) {
                         return redirect()->back()->with("error", "Une erreur s'est produite");
                     }
 
                     Etudiants_cours::create([
-                        "etudiants_id" => $etudiant[0]->id,
-                        "cours_id" => $cours[0]->id,
+                        "etudiants_id" => $etudiant->first()->id,
+                        "cours_id" => $cours->first()->id,
+                        "debut" => $datas["fourth-step-debut"],
+                        "fin" => $datas["fourth-step-fin"],
+                        "duree" => $endHour - $beginHour. "h",
                     ]);
+
                     DB::select("update materiels set etat = ? where libelle = ?", ["Indisponible", $request->materiel]);
 
-                    $time = $endHour - $beginHour;
+                    $time = $endHour - $beginHour. "h";
 
                     return redirect()->route("home")->with("message", "{$request->materiel} doit être retourné dans {$time} heures.");
                 }
