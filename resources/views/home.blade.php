@@ -19,10 +19,13 @@
                 </div>
             </div>
         @endif
+
+        <x-alert message="Text" />
+
         @include('layout.head')
         <x-nav action="home" method="POST" page="home" />
 
-        <div class="transition-all duration-400 relative w-[95%] h-100 flex justify-center items-center">
+        <div class="transition-all duration-400 relative w-[95%] h-100 flex justify-center items-center dark:border-b-0 border-b-2 border-blue-950 dark:pb-0 pb-5">
             <div id="caroussel" class="transition-all duration-400 sm:flex hidden w-1/2 h-full">
                 <img src="{{ asset('img/image_2.jpg') }}" alt="Image"
                     class="transition-all duration-400 aspect-video w-full h-full object-center">
@@ -41,7 +44,8 @@
                 </p>
             </div>
         </div>
-        <hr class="transition-all duration-400 w-full h-1 dark:bg-white">
+        
+        <hr class="transition-all duration-400 w-full h-1 dark:bg-white bg-black">
 
         <div
             class="transition-all duration-400 sticky top-18 left-0 w-[98%] flex flex-col justify-center items-start gap-3 dark:bg-black/80 bg-white/80 z-5">

@@ -25,7 +25,7 @@
 
         <div class="transition-all duration-400 w-full flex justify-start items-center px-5">
             <h2
-                class="transition-all duration-400 relative sm:text-3xl text-xl text-center before:transition-all before:duration-400 before:absolute before:-bottom-1 before:left-0 before:w-full before:h-[2px] before:bg-white after:transition-all after:duration-400 after:absolute after:-bottom-3 after:left-0 after:w-1/2 after:h-[2px] after:bg-white">
+                class="transition-all duration-400 relative sm:text-3xl text-xl text-center dark:text-white text-blue-950 font-bold before:transition-all before:duration-400 before:absolute before:-bottom-1 before:left-0 before:w-full before:h-[2px] dark:before:bg-white before:bg-blue-950 after:transition-all after:duration-400 after:absolute after:-bottom-3 after:left-0 after:w-1/2 after:h-[2px] dark:after:bg-white after:bg-blue-950">
                 Historique
             </h2>
         </div>
@@ -35,7 +35,7 @@
             @forelse ($datas as $data)
                 <div class="transition-all duration-400 w-full flex flex-col justify-start items-start gap-5">
                     <h2
-                        class="transition-all duration-400 relative sm:text-xl text-center before:transition-all before:duration-400 before:absolute before:-bottom-1 before:left-0 before:w-full before:h-[2px] before:bg-white after:transition-all after:duration-400 after:absolute after:-bottom-3 after:left-0 after:w-1/2 after:h-[2px] after:bg-white">
+                        class="transition-all duration-400 relative sm:text-xl text-center dark:text-white text-blue-950 font-bold before:transition-all before:duration-400 before:absolute before:-bottom-1 before:left-0 before:w-full before:h-[2px] dark:before:bg-white before:bg-blue-950 after:transition-all after:duration-400 after:absolute after:-bottom-3 after:left-0 after:w-1/2 after:h-[2px] dark:after:bg-white after:bg-blue-950">
                         <span class="transition-all duration-400 flex justify-center items-center flex-nowrap gap-2">
                             <i class="fa-solid fa-calendar-day"></i>
                             @php
@@ -52,7 +52,7 @@
                     </h2>
 
                     <div
-                        class="transition-all duration-400 relative w-full min-h-50 flex flex-col justify-start items-start gap-3 border-l-2 border-white bg-gray-950 rounded-e-xl my-10 px-5 py-5 before:transition-all before:duration-400 before:absolute before:-top-3 before:-left-3 before:w-6 before:h-6 before:bg-black before:border-6 before:border-white before:rounded-full">
+                        class="transition-all duration-400 relative w-full min-h-50 flex flex-col justify-start items-start gap-3 dark:border-l-2 border-l-4 dark:border-white border-emerald-500 bg-gray-950 rounded-e-xl my-10 px-5 py-5 before:transition-all before:duration-400 before:absolute before:-top-3 before:-left-3 before:w-6 before:h-6 dark:before:bg-black before:bg-white  before:border-6 dark:before:border-white before:border-black before:rounded-full">
 
                         <div
                             class="transition-all duration-400 w-full flex sm:flex-row flex-col justify-start items-start sm:gap-0 gap-3">

@@ -28,13 +28,13 @@
             </div>
         @endif
         <div
-            class="transition-all duration-400 relative min-[850px]:w-[800px] w-[80%] h-[450px] flex justify-center items-center border-2 border-white rounded-lg">
+            class="transition-all duration-400 relative min-[850px]:w-[800px] w-[80%] h-[450px] flex justify-center items-center border-2 dark:border-white border-black rounded-lg">
             <div
                 class="transition-all duration-400 relative min-[850px]:w-1/2 w-full h-full flex justify-center items-center">
                 <img src="{{ asset('img/INSAM.jpg') }}" alt="Logo"
                     class="transition-all duration-400 w-full h-full aspect-video object-center min-[850px]:rounded-s-xl rounded-xl">
                 <div
-                    class="transition-all duration-400 absolute left-0 top-0 w-full h-full flex justify-center min-[850px]:items-center items-start bg-black/80 min-[850px]:rounded-s-xl rounded-xl">
+                    class="transition-all duration-400 absolute left-0 top-0 w-full h-full flex justify-center min-[850px]:items-center items-start dark:bg-black/80 bg-white/70 min-[850px]:bg-black/50 ">
                     <p id="text" class="transition-all duration-400 sm:block hidden sm:text-xl text-center"></p>
                 </div>
             </div>
@@ -44,9 +44,9 @@
                 @method('PUT')
                 <div class="transition-all duration-400 w-2/3 h-[15%] flex justify-center items-center">
                     <h2
-                        class="transition-all duration-400 h-full flex flex-nowrap justify-center items-center sm:text-2xl text-xl font-['papyrus'] text-nowrap">
+                        class="transition-all duration-400 h-full flex flex-nowrap justify-center items-center sm:text-2xl text-xl font-['papyrus'] text-nowrap dark:text-white text-black font-bold">
                         Modifiez : <span
-                            class="trasnition-all duration-400 w-1/2 text-emerald-400 ml-2 underline truncate">{{ $datas->prenom }}</span>
+                            class="trasnition-all duration-400 w-1/2 dark:text-emerald-400 text-emerald-500 ml-2 underline truncate">{{ $datas->prenom }}</span>
                     </h2>
                 </div>
                 <div id="step" class="transition-all duration-400 w-full h-[85%] flex aspect-video overflow-hidden">
@@ -81,23 +81,27 @@
 
                         <div
                             class="transition-all duration-400 relative w-full flex flex-col justify-center items-start gap-5">
-                            <label for="redoublant" class="transition-all duration-400">Il redouble ?</label>
+                            <label for="redoublant"
+                                class="transition-all duration-400 dark:text-white text-black font-bold">Il redouble
+                                ?</label>
 
                             <div class="transition-all duration-400 w-full flex flex-col justify-center items-start gap-2">
                                 <div class="transition-all duration-400 w-full flex justify-start items-center gap-5">
                                     <span class="transition-all duration-400 flex justify-start items-center gap-3 text-xl">
-                                        <i class="fa-solid fa-check"></i>
+                                        <i class="fa-solid fa-check dark:text-white text-black font-bold"></i>
                                         <input type="radio" id="redoublant" name="redoublant" value="1"
                                             @if (strtolower($datas->redoublant) == 'oui') checked @endif
                                             class="transition-all duration-400 w-full cursor-pointer hover:scale-110 active:scale-90">
-                                        <span class="transition-all duration-400 text-base">Oui</span>
+                                        <span
+                                            class="transition-all duration-400 text-base dark:text-white text-black font-bold">Oui</span>
                                     </span>
                                     <span class="transition-all duration-400 flex justify-start items-center gap-3 text-xl">
-                                        <i class="fa-solid fa-xmark"></i>
+                                        <i class="fa-solid fa-xmark dark:text-white text-black font-bold"></i>
                                         <input type="radio" id="redoublant" name="redoublant" value="0"
                                             @if (strtolower($datas->redoublant) == 'non') checked @endif
                                             class="transition-all duration-400 w-full cursor-pointer hover:scale-110 active:scale-90">
-                                        <span class="transition-all duration-400 text-base">Non</span>
+                                        <span
+                                            class="transition-all duration-400 text-base dark:text-white text-black font-bold">Non</span>
                                     </span>
                                 </div>
                                 @error('redoublant')
@@ -117,12 +121,13 @@
                         <x-input label="Niveau" id="niveau" name="niveau" placeholder="1"
                             icon="fa-solid fa-arrow-up-9-1" :value="$datas->niveau" />
                         <select name="statut"
-                            class="transition-all duration-400 w-full border-b-2 border-white cursor-pointer focus:outline-none">
+                            class="transition-all duration-400 w-full border-b-2 dark:border-white border-black dark:bg-transparent sm:bg-white bg-white/30 dark:text-white text-black cursor-pointer focus:outline-none">
                             <option value="Delegue" @if (strtolower($datas->statut) == 'delegue') selected @endif
-                                class="transition-all duration-400 cursor-pointer bg-black text-white">
+                                class="transition-all duration-400 cursor-pointer dark:bg-black bg-blue-950 dark:text-white text-emerald-500">
                                 Délégué</option>
                             <option value="Vice delegue" @if (strtolower($datas->statut) == 'vice delegue') selected @endif
-                                class="transition-all duration-400 cursor-pointer bg-black text-white">Vice délégué
+                                class="transition-all duration-400 cursor-pointer dark:bg-black bg-blue-950 dark:text-white text-emerald-500">
+                                Vice délégué
                             </option>
                         </select>
                         <div class="transition-all duration-400 w-full flex justify-center items-center gap-3">

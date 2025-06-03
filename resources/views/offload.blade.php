@@ -28,37 +28,41 @@
             </div>
         @endif
         <div
-            class="transition-all duration-400 relative min-[850px]:w-[800px] w-[80%] min-h-96 h-[500px] flex justify-center items-center border-2 border-white rounded-lg">
+            class="transition-all duration-400 relative min-[850px]:w-[800px] w-[80%] min-h-96 h-[500px] flex justify-center items-center border-2 dark:border-white border-black rounded-lg">
             <div
-                class="transition-all duration-400 relative min-[850px]:w-1/2 w-full h-full flex justify-center items-center">
+                class="transition-all duration-400 relative min-[850px]:w-1/2 w-full h-full flex justify-center items-center min-[850px]:rounded-s-xl rounded-xl">
                 <img src="{{ asset('img/INSAM.jpg') }}" alt="Logo"
                     class="transition-all duration-400 w-full h-full aspect-video object-center min-[850px]:rounded-s-xl rounded-xl">
                 <div
-                    class="transition-all duration-400 absolute left-0 top-0 w-full h-full flex justify-center min-[850px]:items-center items-start bg-black/80 min-[850px]:rounded-s-xl rounded-xl">
+                    class="transition-all duration-400 absolute left-0 top-0 w-full h-full flex justify-center min-[850px]:items-center items-start dark:bg-black/80 bg-black/50">
                     <p id="text" class="transition-all duration-400 sm:text-xl text-center"></p>
                 </div>
             </div>
             <div id="steps-container"
-                class="transition-all duration-400 min-[850px]:static absolute top-0 left-0 sm:w-1/2 w-full h-full flex overflow-hidden overscroll-none">
+                class="transition-all duration-400 min-[850px]:static absolute top-0 left-0 sm:w-1/2 w-full h-full flex overflow-hidden overscroll-none dark:bg-transparent bg-gray-100/50">
                 <div id="first-step"
                     class="transition-all duration-400 w-full h-full flex flex-col justify-center items-center gap-4 p-10 aspect-video">
                     <div class="transition-all duration-400 w-full h-3/4 flex flex-col justify-center items-start gap-7">
-                        <p class="transition-all duration-400 w-full flex flex-wrap items-center">
+                        <p
+                            class="transition-all duration-400 w-full flex flex-wrap items-center dark:text-white text-black">
                             <span>Quel est le statut de l'étudiant désirant l'element suivant : </span>
                             <span
-                                class="transition-all duration-400 font-bold text-blue-200 px-3">{{ $materiel }}</span>
+                                class="transition-all duration-400 font-bold dark:text-blue-200 text-blue-950 px-3">{{ $materiel }}</span>
                             <span class="transition-all duration-400">?</span>
                         </p>
                         <select name="first-step-select" id="first-step-select"
-                            class="transition-all duration-400 w-full bg-black text-white cursor-pointer focus:outline-none">
+                            class="transition-all duration-400 w-full dark:bg-black bg-gray-200 dark:text-white text-black cursor-pointer focus:outline-none">
                             <option value="Delegue"
-                                class="transition-all duration-400 w-full bg-black text-white cursor-pointer">Délégué
+                                class="transition-all duration-400 w-full dark:bg-black bg-blue-950 dark:text-white text-emerald-500 font-semibold cursor-pointer">
+                                Délégué
                             </option>
                             <option value="Vice-delegue"
-                                class="transition-all duration-400 w-full bg-black text-white cursor-pointer">Vice-délégué
+                                class="transition-all duration-400 w-full dark:bg-black bg-blue-950 dark:text-white text-emerald-500 font-semibold cursor-pointer">
+                                Vice-délégué
                             </option>
                             <option value="Etudiant"
-                                class="transition-all duration-400 w-full bg-black text-white cursor-pointer">Simple
+                                class="transition-all duration-400 w-full dark:bg-black bg-blue-950 dark:text-white text-emerald-500 font-semibold cursor-pointer">
+                                Simple
                                 étudiant
                             </option>
                         </select>
@@ -71,7 +75,9 @@
                     id="second-step">
                     @csrf
                     <div class="transition-all duration-400 w-full flex justify-center items-center">
-                        <h2 class="transition-all duration-400 sm:text-2xl text-xl font-['papyrus']">Délégué
+                        <h2
+                            class="transition-all duration-400 sm:text-2xl text-xl font-['papyrus'] dark:text-white text-blue-950 font-bold">
+                            Délégué
                         </h2>
                     </div>
                     <x-input id="second-step-nom" label="Nom du délégué" name="nom" icon="fa-solid fa-user-check"
@@ -100,7 +106,9 @@
                     id="third-step">
                     @csrf
                     <div class="transition-all duration-400 w-full flex justify-center items-center">
-                        <h2 class="transition-all duration-400 sm:text-2xl text-xl font-['papyrus']">Vice délégué
+                        <h2
+                            class="transition-all duration-400 sm:text-2xl text-xl font-['papyrus'] dark:text-white text-blue-950 font-bold">
+                            Vice délégué
                         </h2>
                     </div>
                     <x-input id="third-step-nom" label="Nom du vice-délégué" name="third_step_nom"
@@ -129,7 +137,9 @@
                     id="fourth-step">
                     @csrf
                     <div class="transition-all duration-400 w-full h-[20%] flex justify-center items-center">
-                        <h2 class="transition-all duration-400 sm:text-2xl text-xl font-['papyrus']">Etudiant
+                        <h2
+                            class="transition-all duration-400 sm:text-2xl text-xl font-['papyrus'] dark:text-white text-blue-950 font-bold">
+                            Etudiant
                         </h2>
                     </div>
                     <div id="fourth-step-steps" class="transition-all duration-400 w-full h-[80%] flex overflow-hidden">

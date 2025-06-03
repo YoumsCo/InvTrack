@@ -29,43 +29,43 @@
         <div class="transition-all duration-400 sm:w-11/12 w-[96%] flex flex-col justify-start items-start px-5">
             <div class="transition-all duration-400 w-full flex justify-start items-center">
                 <h2
-                    class="transition-all duration-400 relative sm:text-3xl text-xl text-center before:transition-all before:duration-400 before:absolute before:-bottom-1 before:left-0 before:w-full before:h-[2px] before:bg-white after:transition-all after:duration-400 after:absolute after:-bottom-3 after:left-0 after:w-1/2 after:h-[2px] after:bg-white">
+                    class="transition-all duration-400 relative sm:text-3xl text-xl text-center dark:text-white text-blue-950 font-bold before:transition-all before:duration-400 before:absolute before:-bottom-1 before:left-0 before:w-full before:h-[2px] before:bg-white after:transition-all after:duration-400 after:absolute after:-bottom-3 after:left-0 after:w-1/2 after:h-[2px] after:bg-white">
                     Liste des étudiants <span
-                        class="transition-all duration-400 text-blue-200 ml-2 text-xl">({{ count($etudiants) }})</span>
+                        class="transition-all duration-400 dark:text-blue-200 text-blue-950 ml-2 text-xl">({{ count($etudiants) }})</span>
                 </h2>
             </div>
 
 
             @forelse ($etudiants as $etd)
                 <div
-                    class="transition-all duration-400 relative w-full sm:h-120 h-150 flex justify-center items-center rounded-md my-10 p-5 before:tranition-all before:duration-400 before:absolute before:left-0 before:top-0 before:w-5 before:h-5 before:border-l-2 before:border-t-2 before:border-white after:tranition-all after:duration-400 after:absolute after:right-0 after:bottom-0 after:w-5 after:h-5 after:border-r-2 after:border-b-2 after:border-white">
+                    class="transition-all duration-400 relative w-full sm:h-120 h-150 flex justify-center items-center rounded-md my-10 p-5 before:tranition-all before:duration-400 before:absolute before:left-0 before:top-0 before:w-5 before:h-5 before:border-l-2 before:border-t-2 dark:before:border-white before:border-blue-950 after:tranition-all after:duration-400 after:absolute after:right-0 after:bottom-0 after:w-5 after:h-5 after:border-r-2 after:border-b-2 dark:after:border-white after:border-blue-950">
                     <div class="transition-all duration-400 sm:w-1/3 w-full h-full flex justify-center items-center rounded-s-md sm:pb-10">
                         <img src="{{ asset('img/Null.webp') }}" alt="Image"
                             class="transition-all duration-400 w-full h-8/12 aspect-video object-center rounded-s-md">
                     </div>
                     <div
-                        class="transition-all duration-400 sm:static absolute left-0 top-0 sm:w-2/3 w-full h-full flex flex-col justify-center items-start sm:gap-10 gap-2 p-5 sm:bg-transparent bg-black/80">
+                        class="transition-all duration-400 sm:static absolute left-0 top-0 sm:w-2/3 w-full h-full flex flex-col justify-center items-start sm:gap-10 gap-2 p-5 sm:bg-transparent dark:bg-black/80 bg-white/80">
                         <div
                             class="transition-all duration-400 w-full h-7/11 flex flex-col justify-center items-start gap-2 px-5">
                             <p class="transition-all duration-400 w-full flex flex-nowrap justify-start items-center gap-2">
-                                <i class="fa-solid fa-user-alt"></i>
-                                <span class="transition-all duration-400 flex gap-3 truncate">
+                                <i class="fa-solid fa-user-alt dark:text-white text-black"></i>
+                                <span class="transition-all duration-400 flex gap-3 truncate dark:text-white text-black">
                                     <span>Nom :</span>
-                                    <span class="text-blue-200">{{ $etd->nom }}</span>
+                                    <span class="transition-all duration-400 dark:text-blue-200 text-blue-950">{{ $etd->nom }}</span>
                                 </span>
                             </p>
                             <p class="transition-all duration-400 w-full flex flex-nowrap justify-start items-center gap-2">
-                                <i class="fa-solid fa-user-alt"></i>
-                                <span class="transition-all duration-400 flex gap-3 truncate">
+                                <i class="fa-solid fa-user-alt dark:text-white text-black"></i>
+                                <span class="transition-all duration-400 flex gap-3 truncate dark:text-white text-black">
                                     <span>Prénom :</span>
-                                    <span class="text-blue-200">{{ $etd->prenom }}</span>
+                                    <span class="transition-all duration-400 dark:text-blue-200 text-blue-950">{{ $etd->prenom }}</span>
                                 </span>
                             </p>
                             <p class="transition-all duration-400 w-full flex flex-nowrap justify-start items-center gap-2">
-                                <i class="fa-solid fa-code-branch"></i>
-                                <span class="transition-all duration-400 flex gap-3 truncate">
+                                <i class="fa-solid fa-code-branch dark:text-white text-black"></i>
+                                <span class="transition-all duration-400 flex gap-3 truncate dark:text-white text-black">
                                     <span>Specialité :</span>
-                                    <span class="text-blue-200">
+                                    <span class="transition-all duration-400 dark:text-blue-200 text-blue-950">
                                         @foreach ($specialites as $sp)
                                             @if ($etd->specialite_id == $sp->id)
                                                 <span class="sm:inline hidden">{{ $sp->intitule }}</span>
@@ -82,18 +82,18 @@
                                 class="transition-all duration-400 sm:w-1/2 w-full h-full flex flex-col justify-center items-start gap-5 px-5">
                                 <p
                                     class="transition-all duration-400 w-full flex flex-nowrap justify-start items-center gap-2">
-                                    <i class="fa-solid fa-id-card"></i>
-                                    <span class="transition-all duration-400 flex gap-3 truncate">
+                                    <i class="fa-solid fa-id-card dark:text-white text-black"></i>
+                                    <span class="transition-all duration-400 flex gap-3 truncate dark:text-white text-black">
                                         <span>Matricule :</span>
-                                        <span class="text-blue-200">{{ $etd->matricule }}</span>
+                                        <span class="transition-all duration-400 dark:text-blue-200 text-blue-950">{{ $etd->matricule }}</span>
                                     </span>
                                 </p>
                                 <p
                                     class="transition-all duration-400 w-full flex flex-nowrap justify-start items-center gap-2">
-                                    <i class="fa-solid fa-calendar-day"></i>
-                                    <span class="transition-all duration-400 flex gap-3 truncate">
+                                    <i class="fa-solid fa-calendar-day dark:text-white text-black"></i>
+                                    <span class="transition-all duration-400 flex gap-3 truncate dark:text-white text-black">
                                         <span>Date de naissance :</span>
-                                        <span class="text-blue-200">
+                                        <span class="transition-all duration-400 dark:text-blue-200 text-blue-950">
                                             @php
                                                 $date = new DateTime($etd->date_naissance);
                                                 echo $date->format('d/m/Y');
@@ -103,10 +103,10 @@
                                 </p>
                                 <p
                                     class="transition-all duration-400 w-full flex flex-nowrap justify-start items-center gap-2">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <span class="transition-all duration-400 flex gap-3 truncate">
+                                    <i class="fa-solid fa-location-dot dark:text-white text-black"></i>
+                                    <span class="transition-all duration-400 flex gap-3 truncate dark:text-white text-black">
                                         <span>Lieu :</span>
-                                        <span class="text-blue-200">{{ $etd->lieu }}</span>
+                                        <span class="transition-all duration-400 dark:text-blue-200 text-blue-950">{{ $etd->lieu }}</span>
                                     </span>
                                 </p>
                             </div>
@@ -115,29 +115,29 @@
                                 <p
                                     class="transition-all duration-400 w-full flex flex-nowrap justify-start items-center gap-2">
                                     @if ($etd->redoublant == 'oui')
-                                        <i class="fa-solid fa-check"></i>
+                                        <i class="fa-solid fa-check dark:text-white text-black"></i>
                                     @else
-                                        <i class="fa-solid fa-xmark"></i>
+                                        <i class="fa-solid fa-xmark dark:text-white text-black"></i>
                                     @endif
-                                    <span class="transition-all duration-400 flex gap-3 truncate">
+                                    <span class="transition-all duration-400 flex gap-3 truncate dark:text-white text-black">
                                         <span>Redoublant :</span>
-                                        <span class="text-blue-200">{{ $etd->redoublant }}</span>
+                                        <span class="transition-all duration-400 dark:text-blue-200 text-blue-950">{{ $etd->redoublant }}</span>
                                     </span>
                                 </p>
                                 <p
                                     class="transition-all duration-400 w-full flex flex-nowrap justify-start items-center gap-2">
-                                    <i class="fa-solid fa-arrow-up-9-1"></i>
-                                    <span class="transition-all duration-400 flex gap-3 truncate">
+                                    <i class="fa-solid fa-arrow-up-9-1 dark:text-white text-black"></i>
+                                    <span class="transition-all duration-400 flex gap-3 truncate dark:text-white text-black">
                                         <span>Niveau :</span>
-                                        <span class="text-blue-200">{{ $etd->niveau }}</span>
+                                        <span class="transition-all duration-400 dark:text-blue-200 text-blue-950">{{ $etd->niveau }}</span>
                                     </span>
                                 </p>
                                 <p
                                     class="transition-all duration-400 w-full flex flex-nowrap justify-start items-center gap-2">
-                                    <i class="fa-solid fa-user-tie"></i>
-                                    <span class="transition-all duration-400 flex gap-3 truncate">
+                                    <i class="fa-solid fa-user-tie dark:text-white text-black"></i>
+                                    <span class="transition-all duration-400 flex gap-3 truncate dark:text-white text-black">
                                         <span>Responsable :</span>
-                                        <span class="text-blue-200">
+                                        <span class="transition-all duration-400 dark:text-blue-200 text-blue-950">
                                             @php
                                                 foreach ($responsables as $resp) {
                                                     if ($etd->responsable_id == $resp->id) {
@@ -153,10 +153,10 @@
                         <div
                             class="transition-all duration-400 w-full h-1/11 flex flex-col justify-center items-start gap-2 px-5">
                             <p class="transition-all duration-400 w-full flex flex-nowrap justify-start items-center gap-2">
-                                <i class="fa-solid fa-user-tie"></i>
-                                <span class="transition-all duration-400 flex gap-3 truncate">
+                                <i class="fa-solid fa-user-tie dark:text-white text-black"></i>
+                                <span class="transition-all duration-400 flex gap-3 truncate dark:text-white text-black">
                                     <span>Statut :</span>
-                                    <span class="text-blue-200">{{ $etd->statut }}</span>
+                                    <span class="transition-all duration-400 dark:text-blue-200 text-blue-950">{{ $etd->statut }}</span>
                                 </span>
                             </p>
                         </div>

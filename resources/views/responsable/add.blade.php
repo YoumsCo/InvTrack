@@ -28,13 +28,13 @@
             </div>
         @endif
         <div
-            class="transition-all duration-400 relative min-[850px]:w-[800px] w-[80%] h-[450px] flex justify-center items-center border-2 border-white rounded-lg">
+            class="transition-all duration-400 relative min-[850px]:w-[800px] w-[80%] h-[450px] flex justify-center items-center border-2 dark:border-white border-black rounded-lg">
             <div
                 class="transition-all duration-400 relative min-[850px]:w-1/2 w-full h-full flex justify-center items-center">
                 <img src="{{ asset('img/INSAM.jpg') }}" alt="Logo"
                     class="transition-all duration-400 w-full h-full aspect-video object-center min-[850px]:rounded-s-xl rounded-xl">
                 <div
-                    class="transition-all duration-400 absolute left-0 top-0 w-full h-full flex justify-center min-[850px]:items-center items-start bg-black/80 min-[850px]:rounded-s-xl rounded-xl">
+                    class="transition-all duration-400 absolute left-0 top-0 w-full h-full flex justify-center min-[850px]:items-center items-start dark:bg-black/80 bg-white/70 min-[850px]:bg-black/50 ">
                     <p id="text" class="transition-all duration-400 sm:block hidden sm:text-xl text-center"></p>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                 @csrf
                 <div class="transition-all duration-400 w-full h-[15%] flex justify-center items-center">
                     <h2
-                        class="transition-all duration-400 h-full flex justify-center items-center sm:text-2xl text-xl font-['papyrus']">
+                        class="transition-all duration-400 h-full flex justify-center items-center sm:text-2xl text-xl font-['papyrus'] dark:text-white text-black dark:font-normal font-bold">
                         Ajoutez-en un
                     </h2>
                 </div>
