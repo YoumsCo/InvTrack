@@ -42,10 +42,12 @@ class OffloadController extends Controller
                         "fin" => ["required", "string"],
                     ]);
 
+                    $datas["cours"] = ucfirst(strtolower($datas["cours"]));
+
                     [$beginHour, $beginMin] = explode(":", $datas["debut"]);
                     [$endHour, $endMin] = explode(":", $datas["fin"]);
 
-                    if (($beginHour > $endHour) || ($beginHour < 8) || ($endHour > 21)) {
+                    if (($beginHour > $endHour) || ($beginHour < 8) || ($endHour > 21 && $endMin > 30)) {
                         return redirect()->back()->with("error", "Veuillez entrer des heures valides");
                     }
 
@@ -99,10 +101,12 @@ class OffloadController extends Controller
                         "third-step-fin" => ["required", "string"],
                     ]);
 
+                    $datas["third-step-cours"] = ucfirst(strtolower($datas["third-step-cours"]));
+
                     [$beginHour, $beginMin] = explode(":", $datas["third-step-debut"]);
                     [$endHour, $endMin] = explode(":", $datas["third-step-fin"]);
 
-                    if (($beginHour > $endHour) || ($beginHour < 8) || ($endHour > 21)) {
+                    if (($beginHour > $endHour) || ($beginHour < 8) || ($endHour > 21 && $endMin > 30)) {
                         return redirect()->back()->with("error", "Veuillez entrer des heures valides");
                     }
 
@@ -156,13 +160,14 @@ class OffloadController extends Controller
                         "fourth-step-debut" => ["required", "string"],
                         "fourth-step-fin" => ["required", "string"],
                     ]);
-
+                    
                     $datas["fourth-step-nom"] = ucfirst(strtolower($datas["fourth-step-nom"]));
+                    $datas["fourth-step-cours"] = ucfirst(strtolower($datas["fourth-step-cours"]));
 
                     [$beginHour, $beginMin] = explode(":", $datas["fourth-step-debut"]);
                     [$endHour, $endMin] = explode(":", $datas["fourth-step-fin"]);
 
-                    if (($beginHour > $endHour) || ($beginHour < 8) || ($endHour > 21)) {
+                    if (($beginHour > $endHour) || ($beginHour < 8) || ($endHour > 21 && $endMin > 30)) {
                         return redirect()->back()->with("error", "Veuillez entrer des heures valides");
                     }
 

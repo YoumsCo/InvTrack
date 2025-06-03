@@ -1,3 +1,5 @@
+{{-- @dd($datas) --}}
+
 @extends('layout.layout')
 @section('title')
     Historique
@@ -21,7 +23,7 @@
             </h2>
         </div>
 
-        <div class="transition-all duration-400 w-[95%] flex flex-col justify-start items-start gap-5 px-10">
+        <div class="transition-all duration-400 w-[95%] flex flex-col justify-start items-start gap-5 px-10 mt-10">
 
             @forelse ($datas as $data)
                 <div class="transition-all duration-400 w-full flex flex-col justify-start items-start gap-5">
@@ -54,7 +56,7 @@
                                     <span>
                                         <i class="fa-solid fa-check"></i>
                                     </span>
-                                    <span>
+                                    <span class="transition-all duration-400 text-nowrap w-full truncate">
                                         <span>Matériel : </span>
                                         <span
                                             class="transition-all duration-400 ml-2 text-blue-200 truncate">{{ $data->libelle }}</span>
@@ -65,7 +67,7 @@
                                     <span>
                                         <i class="fa-solid fa-check"></i>
                                     </span>
-                                    <span>
+                                    <span class="transition-all duration-400 text-nowrap w-full truncate">
                                         <span>Statut : </span>
                                         <span
                                             class="transition-all duration-400 ml-2 text-blue-200 truncate">{{ $data->etat }}</span>
@@ -76,10 +78,10 @@
                                     <span>
                                         <i class="fa-solid fa-check"></i>
                                     </span>
-                                    <span>
+                                    <span class="transition-all duration-400 text-nowrap w-full truncate">
                                         <span>Catégorie : </span>
                                         <span class="transition-all duration-400 ml-2 text-blue-200 truncate">
-                                            {{ $data->libelle }}
+                                            {{ $data->categorie }}
                                         </span>
                                     </span>
                                 </p>
@@ -92,9 +94,9 @@
                                     <span>
                                         <i class="fa-solid fa-check"></i>
                                     </span>
-                                    <span>
+                                    <span class="transition-all duration-400 text-nowrap w-full truncate">
                                         <span>Etudiant : </span>
-                                        <span class="transition-all duration-400 ml-2 text-blue-200 truncate">
+                                        <span class="transition-all duration-400 ml-2 text-blue-200">
                                             {{ $data->nom }} {{ $data->prenom }}
                                         </span>
                                     </span>
@@ -104,7 +106,7 @@
                                     <span>
                                         <i class="fa-solid fa-check"></i>
                                     </span>
-                                    <span>
+                                    <span class="transition-all duration-400 text-nowrap w-full truncate">
                                         <span>Statut : </span>
                                         <span class="transition-all duration-400 ml-2 text-blue-200 truncate">
                                             {{ $data->statut }}
@@ -116,7 +118,7 @@
                                     <span>
                                         <i class="fa-solid fa-check"></i>
                                     </span>
-                                    <span>
+                                    <span class="transition-all duration-400 text-nowrap w-full truncate">
                                         <span>Spécialité : </span>
                                         <span class="transition-all duration-400 ml-2 text-blue-200 truncate">
                                             @foreach ($specialites as $spe)
@@ -136,10 +138,10 @@
                                 <span>
                                     <i class="fa-solid fa-check"></i>
                                 </span>
-                                <span>
+                                <span class="transition-all duration-400 text-nowrap w-full truncate">
                                     <span>Cours : </span>
                                     <span class="transition-all duration-400 ml-2 text-blue-200 truncate">
-                                        {{ $data->intitule }}
+                                        {{ $data->cours }}
                                     </span>
                                 </span>
                             </p>
@@ -147,12 +149,12 @@
                                 <span>
                                     <i class="fa-solid fa-check"></i>
                                 </span>
-                                <span>
+                                <span class="transition-all duration-400 text-nowrap w-full truncate">
                                     <span>Debut : </span>
                                     <span class="transition-all duration-400 ml-2 text-blue-200 truncate">
                                         @php
                                             [$h, $m, $s] = explode(':', $data->debut);
-                                            echo (string) $h . 'h ' . $m;
+                                            echo (string) $h . 'h ' . $m . ' min';
                                         @endphp
                                     </span>
                                 </span>
@@ -161,12 +163,12 @@
                                 <span>
                                     <i class="fa-solid fa-check"></i>
                                 </span>
-                                <span>
+                                <span class="transition-all duration-400 text-nowrap w-full truncate">
                                     <span>Fin : </span>
                                     <span class="transition-all duration-400 ml-2 text-blue-200 truncate">
                                         @php
                                             [$h, $m, $s] = explode(':', $data->fin);
-                                            echo (string) $h . 'h ' . $m;
+                                            echo (string) $h . 'h ' . $m . ' min';
                                         @endphp
                                     </span>
                                 </span>
@@ -175,7 +177,7 @@
                                 <span>
                                     <i class="fa-solid fa-check"></i>
                                 </span>
-                                <span>
+                                <span class="transition-all duration-400 text-nowrap w-full truncate">
                                     <span>Durée : </span>
                                     <span class="transition-all duration-400 ml-2 text-blue-200 truncate">
                                         {{ $data->duree }}
@@ -184,14 +186,16 @@
                             </p>
                         </div>
 
-                        <div
-                            class="transition-all duration-400 w-full flex sm:justify-end justify-center items-center pr-5">
-                            <form action="{{ route('historique') }}" method="POST">
-                                @csrf
-                                <input type="hidden" name="materiel" value="{{ $data->libelle }}">
-                                <x-button type="submit" content="Restituer" />
-                            </form>
-                        </div>
+                        @if ($data->etat == 'Indisponible')
+                            <div
+                                class="transition-all duration-400 w-full flex sm:justify-end justify-center items-center pr-5">
+                                <form action="{{ route('historique') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="materiel" value="{{ $data->libelle }}">
+                                    <x-button type="submit" content="Restituer" />
+                                </form>
+                            </div>
+                        @endif
                     </div>
                 </div>
             @empty
