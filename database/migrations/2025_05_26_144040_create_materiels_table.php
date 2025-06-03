@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("matricule")->unique();
             $table->string("libelle");
             $table->string("etat");
+            $table->string("image");
             $table->timestamps();
         });
     }

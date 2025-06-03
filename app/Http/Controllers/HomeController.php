@@ -6,6 +6,7 @@ use App\Models\Categories;
 use App\Models\Materiels;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -129,4 +130,5 @@ class HomeController extends Controller
             "searchs" => null,
         ]);
     }
+
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Http\Controllers\FilesController;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,11 +17,14 @@ class MaterielsFactory extends Factory
      */
     public function definition(): array
     {
+
         return [
             "categories_id" => fake()->numberBetween(1, 4),
             "matricule" => fake()->unique()->sentence(1),
             "libelle" => fake()->sentence(1),
             "etat" => fake()->randomElement(["Disponible", "En maintenance", "Défectueux"]),
+            // "image" => fake()->randomElement(["i.jpg", "e.png"]),
+            "image" => fake()->randomElement(FilesController::img()),
         ];
     }
 }

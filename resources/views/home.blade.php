@@ -1,9 +1,11 @@
+{{-- @dd($img[2]) --}}
+
 @extends('layout.layout')
 @section('title')
     Accueil
 @endsection
 @section('css_js')
-    @vite(['resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 @endsection
 @section('body')
     <x-container>
@@ -16,9 +18,12 @@
 
         <div
             class="transition-all duration-400 relative w-[95%] h-100 flex justify-center items-center dark:border-b-0 border-b-2 border-blue-950 dark:pb-0 pb-5">
+            <div class="transition-all duration-400 absolute left-0 top-0 sm:block hidden w-1/2 h-full dark:bg-black/20">
+
+            </div>
             <div id="caroussel" class="transition-all duration-400 sm:flex hidden w-1/2 h-full">
-                <img src="{{ asset('img/image_2.jpg') }}" alt="Image"
-                    class="transition-all duration-400 aspect-video w-full h-full object-center">
+                <img src="{{ asset('img/landing.jpg') }}" alt="Image"
+                    class="transition-all duration-400 aspect-video w-full h-full object-center mix-blend-multiply">
             </div>
             <div
                 class="transition-all duration-400 sm:w-1/2 w-full h-full flex flex-col justify-center items-start dark:bg-black/80 gap-5 p-10">
@@ -78,7 +83,7 @@
             @if ($searchs !== null)
                 <x-category icon="stethoscope" name="Resultats de recherche" :count="count($searchs)">
                     @forelse ($searchs as $data)
-                        <x-materiel :image="asset('img/image_7.jpg')" name="{{ $data->libelle }}" indice="{{ $data->intitule }}" />
+                        <x-materiel :image="asset((string)'img/'. $data->image)" name="{{ $data->libelle }}" indice="{{ $data->intitule }}" />
                     @empty
                         <x-materiel :image="asset('img/Null.webp')" name="Aucun resultat 😥" />
                     @endforelse
@@ -106,15 +111,15 @@
 
                 <x-category icon="stethoscope" name="Santé" :count="$count_s">
                     @forelse ($sante as $s)
-                        <x-materiel :image="asset('img/image_7.jpg')" name="{{ $s->libelle }}" />
-                    @empty
-                        <x-materiel :image="asset('img/Null.webp')" name="Aucun resultat 😥" />
+                        <x-materiel :image="asset((string) 'storage/' . $s->image)" name="{{ $s->libelle }}" />
+                            @empty
+                            <x-materiel :image="asset('img/Null.webp')" name="Aucun resultat 😥" />
                     @endforelse
                 </x-category>
 
 
                 {{-- Informatique --}}
-
+                
                 @php
                     $count_i = 0;
                     $informatique = [];
@@ -122,18 +127,18 @@
 
                 @foreach ($categories as $cat)
                     @foreach ($materiels as $mat)
-                        @if ($cat->id == $mat->categories_id && strtolower($cat->intitule) == 'informatique')
-                            @php
+                    @if ($cat->id == $mat->categories_id && strtolower($cat->intitule) == 'informatique')
+                    @php
                                 $count_i++;
                                 array_push($informatique, $mat);
                             @endphp
                         @endif
                     @endforeach
-                @endforeach
-
-                <x-category icon="laptop-code" name="Informatique" :count="$count_i">
-                    @forelse ($informatique as $i)
-                        <x-materiel :image="asset('img/image_8.jpg')" name="{{ $i->libelle }}" count="4" />
+                    @endforeach
+                    
+                    <x-category icon="laptop-code" name="Informatique" :count="$count_i">
+                        @forelse ($informatique as $i)
+                        <x-materiel :image="asset((string) 'storage/' . $i->image)" name="{{ $s->libelle }}" />
                     @empty
                         <x-materiel :image="asset('img/Null.webp')" name="Aucun resultat 😥" />
                     @endforelse
@@ -160,7 +165,7 @@
 
                 <x-category icon="screwdriver-wrench" name="Technique" :count="$count_t">
                     @forelse ($technique as $t)
-                        <x-materiel :image="asset('img/image_6.jpg')" name="{{ $t->libelle }}" />
+                    <x-materiel :image="asset((string) 'storage/' . $t->image)" name="{{ $t->libelle }}" />
                     @empty
                         <x-materiel :image="asset('img/Null.webp')" name="Aucun resultat 😥" />
                     @endforelse
@@ -187,7 +192,7 @@
 
                 <x-category name="Autre" :count="$count_a" icon="fa-solid fa-layer-group">
                     @forelse ($autre as $a)
-                        <x-materiel :image="asset('img/image_5.jpg')" name="{{ $a->libelle }}" />
+                        <x-materiel :image="asset((string) 'storage/' . $a->image)" name="{{ $a->libelle }}" />
                     @empty
                         <x-materiel :image="asset('img/Null.webp')" name="Aucun resultat 😥" />
                     @endforelse

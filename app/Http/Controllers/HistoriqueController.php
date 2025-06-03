@@ -19,7 +19,7 @@ class HistoriqueController extends Controller
     function index(Request $request): View
     {
         if ($request->search) {
-            return view("historique", [
+            return view("historique.historique", [
                 "specialites" => Specialites::all(),
                 "datas" => Etudiants_cours::join("materiels", function (JoinClause $join) use ($request) {
                     $join->on("materiels.etudiant_id", "=", "etudiants_cours.etudiants_id")
@@ -42,7 +42,7 @@ class HistoriqueController extends Controller
                     ->get(),
             ]);
         }
-        return view("historique", [
+        return view("historique.historique", [
             "specialites" => Specialites::all(),
             "datas" => Etudiants_cours::join("materiels", function (JoinClause $join) {
                 $join->on("materiels.etudiant_id", "=", "etudiants_cours.etudiants_id")
