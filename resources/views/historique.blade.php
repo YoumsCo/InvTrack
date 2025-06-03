@@ -3,7 +3,6 @@
     Historique
 @endsection
 @section('css_js')
-    @vite(['resources/css/historique.css'])
 @endsection
 @section('body')
     <x-container>

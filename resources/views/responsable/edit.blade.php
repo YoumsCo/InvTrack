@@ -3,7 +3,7 @@
     Modifier : {{ $datas->prenom }}
 @endsection
 @section('css_js')
-    @vite(['resources/css/responsable/edit.css', 'resources/js/responsable/edit.js'])
+    @vite(['resources/js/responsable/edit.js'])
 @endsection
 @section('body')
     <x-container centerZ>

@@ -3,7 +3,7 @@
     Page inexistante
 @endsection
 @section('css_js')
-    @vite(entrypoints: ['resources/css/app.css', 'resources/js/app.js'])
+    @vite(entrypoints: ['resources/js/app.js'])
 @endsection
 @section('body')
     <x-container centerZ>

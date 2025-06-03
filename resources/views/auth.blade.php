@@ -3,7 +3,7 @@
     Authentification
 @endsection
 @section('css_js')
-    @vite(['resources/css/auth.css', 'resources/js/auth.js'])
+    @vite(['resources/js/auth.js'])
 @endsection
 @section('body')
     <x-container centerZ>

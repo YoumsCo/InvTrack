@@ -2,9 +2,6 @@
 @section('title')
     Liste des étudiants
 @endsection
-@section('css_js')
-    @vite(['resources/css/etudiant/list.css'])
-@endsection
 @section('body')
     <x-container>
         @if (session('message'))

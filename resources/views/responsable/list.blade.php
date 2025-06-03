@@ -3,7 +3,6 @@
     Liste des responsables
 @endsection
 @section('css_js')
-    @vite(['resources/css/responsable/list.css'])
 @endsection
 @section('body')
     <x-container>

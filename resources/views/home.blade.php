@@ -3,7 +3,7 @@
     Accueil
 @endsection
 @section('css_js')
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/js/app.js'])
 @endsection
 @section('body')
     <x-container>
@@ -28,30 +28,32 @@
                     class="transition-all duration-400 aspect-video w-full h-full object-center">
             </div>
             <div
-                class="transition-all duration-400 sm:w-1/2 w-full h-full flex flex-col justify-center items-start bg-black/80 gap-5 p-10">
+                class="transition-all duration-400 sm:w-1/2 w-full h-full flex flex-col justify-center items-start dark:bg-black/80 gap-5 p-10">
                 <p
-                    class="transition-all duration-400 w-full flex justify-start items-center text-justify sm:text-2xl text-xl">
+                    class="transition-all duration-400 w-full flex justify-start items-center text-justify sm:text-2xl text-xl dark:text-white text-black">
                     Bienvenu sur &nbsp;<span class="transition-all duration-400 font-bold italic">InvTrack</span>.
                 </p>
-                <p class="transition-all duration-400 w-full flex justify-center items-center text-justify text-base">
+                <p
+                    class="transition-all duration-400 w-full flex justify-center items-center text-justify text-base dark:text-white text-black">
                     InvTrack est votre logiciel de gestion du stock sortant pendant les cours, ceci pour empêcher
                     toute perte de matériel et ainsi garantir la quasi-permanente disponibilité du matériel ainsi
                     qu'un suivi pas à pas du stock.
                 </p>
             </div>
         </div>
-        <hr class="transition-all duration-400 w-full h-1 bg-white">
+        <hr class="transition-all duration-400 w-full h-1 dark:bg-white">
 
         <div
-            class="transition-all duration-400 sticky top-18 left-0 w-[98%] flex flex-col justify-center items-start gap-3 bg-black/80 z-5">
+            class="transition-all duration-400 sticky top-18 left-0 w-[98%] flex flex-col justify-center items-start gap-3 dark:bg-black/80 bg-white/80 z-5">
             <div class="transition-all duration-400 w-full flex justify-start items-center gap-5">
-                <span class="mr-2 sm:text-xl text-base text-nowrap"><i class="fa-solid fa-filter mr-5"></i>Filtre /
+                <span class="mr-2 sm:text-xl text-base text-nowrap dark:text-white text-black"><i
+                        class="fa-solid fa-filter mr-5"></i>Filtre /
                     matériel
                     : ...</span>
                 <div id="filterContainer"
                     class="transition-all duration-400 w-full flex justify-start items-center pl-5 sm:pl-0 sm:gap-3 gap-10 overflow-hidden pr-5">
                     <a href="{{ route('home') }}"
-                        class="transition-all duration-500 relative flex justify-center items-center w-[150px] h-[40px] bg-black text-white font-extrabold rounded-md cursor-pointer border-b-2 border-white active:scale-80 hover:scale-105 before:transition-all before:duration-500 before:absolute before:left-1/2 before:top-0 before:border-t-2 before:border-white before:w-0 hover:before:left-0 hover:before:w-full">Tout</a>
+                        class="transition-all duration-500 relative flex justify-center items-center w-[150px] h-[40px] dark:bg-black bg-gray-200 dark:text-white text-black font-extrabold rounded-md cursor-pointer border-b-2 dark:border-white border-black active:scale-80 hover:scale-105 before:transition-all before:duration-500 before:absolute before:left-1/2 before:top-0 before:border-t-2 dark:before:border-white before:border-black before:w-0 hover:before:left-0 hover:before:w-full">Tout</a>
                     @foreach ($categories as $categorie)
                         <form action="{{ route('home') }}" method="POST"
                             class="transition-all duration-400 flex justify-center items-center">
@@ -60,7 +62,7 @@
                             <input type="hidden" name="action" value="filter">
                             <input type="hidden" name="page" value="home">
                             <button type="submit"
-                                class="transition-all duration-500 relative flex justify-center items-center w-[150px] h-[40px] bg-black text-white font-extrabold rounded-md cursor-pointer border-b-2 border-white active:scale-80 hover:scale-105 before:transition-all before:duration-500 before:absolute before:left-1/2 before:top-0 before:border-t-2 before:border-white before:w-0 hover:before:left-0 hover:before:w-full">
+                                class="transition-all duration-500 relative flex justify-center items-center w-[150px] h-[40px] dark:bg-black bg-gray-200 dark:text-white text-black font-extrabold rounded-md cursor-pointer border-b-2 dark:border-white border-black active:scale-80 hover:scale-105 before:transition-all before:duration-500 before:absolute before:left-1/2 before:top-0 before:border-t-2 dark:before:border-white before:border-black before:w-0 hover:before:left-0 hover:before:w-full">
                                 {{ $categorie->intitule }}
                             </button>
                         </form>
@@ -69,10 +71,10 @@
             </div>
             <div class="transition-all duration-400 w-full hidden max-[600px]:flex justify-center items-center gap-7">
                 <i id="filter-left"
-                    class="fa fa-chevron-left transition-all duration-400 hover:scale-105 active:scale-85 cursor-pointer"
+                    class="fa fa-chevron-left transition-all duration-400 dark:text-white text-black hover:scale-105 active:scale-85 cursor-pointer"
                     style="font-size: 17pt;"></i>
                 <i id="filter-right"
-                    class="fa fa-chevron-right transition-all duration-400 hover:scale-105 active:scale-85 cursor-pointer"
+                    class="fa fa-chevron-right transition-all duration-400 dark:text-white text-black hover:scale-105 active:scale-85 cursor-pointer"
                     style="font-size: 17pt;"></i>
             </div>
         </div>

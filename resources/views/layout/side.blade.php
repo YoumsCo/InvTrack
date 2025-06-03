@@ -46,6 +46,11 @@
             <i class="fa-solid fa-history"></i>
             <span class="side-link-text">Historique</span>
         </a>
+        <span id="theme" href="{{ route("historique") }}"
+            class="transition-all duration-400 w-full min-h-10 border-b-2 border-white flex justify-start items-center gap-3 font-bold px-2 cursor-pointer hover:text-black hover:bg-white/90 active:scale-90">
+            <i class="fa-solid fa-moon"></i>
+            <span class="side-link-text">Sombre</span>
+        </span>
     </div>
     <div class="transition-all duration-400 w-full h-[10%] flex flex-col justfy-end items-center gap-3">
         <p id="side-footer-text" class="transition-all duration-400 w-full h-full flex flex-wrap justify-center items-center">

@@ -3,7 +3,7 @@
     Ajouter un responsable
 @endsection
 @section('css_js')
-    @vite(['resources/css/responsable/add.css', 'resources/js/responsable/add.js'])
+    @vite(['resources/js/responsable/add.js'])
 @endsection
 @section('body')
     <x-container centerZ>

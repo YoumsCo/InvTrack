@@ -1,5 +1,5 @@
 <div
-    class="transition-all duration-400 w-full min-h-25 flex flex-col justify-center items-center bg-black p-5 mt-10 border-t-2 border-white">
+    class="transition-all duration-400 w-full min-h-25 flex flex-col justify-center items-center dark:bg-black bg-blue-950 p-5 mt-10 border-t-2 dark:border-white border-black">
     <div class="transition-all duration-400 w-full flex justify-center items-center">
         <a href="{{ route('home') }}" class="transition-all duration-400 w-18 h-18 flex justify-center items-center">
             <img src="{{ asset('img/INSAM.jpg') }}" alt="Logo" class="aspect-video rounded-full w-full h-full">

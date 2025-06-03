@@ -3,7 +3,7 @@
     Modifier le mot de passe
 @endsection
 @section('css_js')
-    @vite(['resources/css/auth.css', 'resources/js/reset.js'])
+    @vite(['resources/js/reset.js'])
 @endsection
 @section('body')
     <x-container centerZ>

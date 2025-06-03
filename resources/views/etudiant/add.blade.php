@@ -3,7 +3,7 @@
     Ajoutez un étudiant
 @endsection
 @section('css_js')
-    @vite(['resources/css/etudiant/add.css', 'resources/js/etudiant/add.js'])
+    @vite(['resources/js/etudiant/add.js'])
 @endsection
 @section('body')
     <x-container centerZ>
