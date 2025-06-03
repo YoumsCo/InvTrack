@@ -1,4 +1,4 @@
-@vite(["resources/css/layout/side.css", "resources/js/layout/side.js"])
+@vite(["resources/js/layout/side.js"])
 
 <div id="side-container"
     class="transition-all duration-400 sm:relative fixed top-0 left-0 w-50 h-full flex flex-col justify-center items-center bg-black/60 border-r border-white z-30">

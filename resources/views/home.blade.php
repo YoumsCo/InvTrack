@@ -8,24 +8,14 @@
 @section('body')
     <x-container>
         @if (session('message'))
-            <div class="transition-all duration-400 w-full h-full flex justify-center items-center">
-                <div role="alert" class="alert alert-success">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>{{ session('message') }}</span>
-                </div>
-            </div>
+            <x-alert :message="session('message')" />
         @endif
-
-        <x-alert message="Text" />
 
         @include('layout.head')
         <x-nav action="home" method="POST" page="home" />
 
-        <div class="transition-all duration-400 relative w-[95%] h-100 flex justify-center items-center dark:border-b-0 border-b-2 border-blue-950 dark:pb-0 pb-5">
+        <div
+            class="transition-all duration-400 relative w-[95%] h-100 flex justify-center items-center dark:border-b-0 border-b-2 border-blue-950 dark:pb-0 pb-5">
             <div id="caroussel" class="transition-all duration-400 sm:flex hidden w-1/2 h-full">
                 <img src="{{ asset('img/image_2.jpg') }}" alt="Image"
                     class="transition-all duration-400 aspect-video w-full h-full object-center">
@@ -44,7 +34,7 @@
                 </p>
             </div>
         </div>
-        
+
         <hr class="transition-all duration-400 w-full h-1 dark:bg-white bg-black">
 
         <div

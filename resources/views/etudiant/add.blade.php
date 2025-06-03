@@ -7,25 +7,11 @@
 @endsection
 @section('body')
     <x-container centerZ>
-        @if (session('error'))
-            <div role="alert" class="alert alert-error">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>{{ session('error') }}</span>
-            </div>
-        @endif
         @if (session('message'))
-            <div role="alert" class="alert alert-success">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>{{ session('message') }}</span>
-            </div>
+            <x-alert :message="session('message')" />
+        @endif
+        @if (session('error'))
+            <x-alert :message="session('error')" />
         @endif
         <div
             class="transition-all duration-400 relative min-[850px]:w-[800px] w-[80%] h-[450px] flex justify-center items-center border-2 dark:border-white border-black rounded-lg">
@@ -69,7 +55,9 @@
 
                         <div
                             class="transition-all duration-400 relative w-full flex flex-col justify-center items-start gap-5">
-                            <label for="redoublant" class="transition-all duration-400 dark:text-white text-black font-bold">Il redouble ?</label>
+                            <label for="redoublant"
+                                class="transition-all duration-400 dark:text-white text-black font-bold">Il redouble
+                                ?</label>
 
                             <div class="transition-all duration-400 w-full flex flex-col justify-center items-start gap-2">
                                 <div class="transition-all duration-400 w-full flex justify-start items-center gap-5">
@@ -77,13 +65,15 @@
                                         <i class="fa-solid fa-check dark:text-white text-black"></i>
                                         <input type="radio" id="redoublant" name="redoublant" value="1"
                                             class="transition-all duration-400 w-full cursor-pointer hover:scale-110 active:scale-90">
-                                        <span class="transition-all duration-400 text-base dark:text-white text-black font-bold">Oui</span>
+                                        <span
+                                            class="transition-all duration-400 text-base dark:text-white text-black font-bold">Oui</span>
                                     </span>
                                     <span class="transition-all duration-400 flex justify-start items-center gap-3 text-xl">
                                         <i class="fa-solid fa-xmark dark:text-white text-black"></i>
                                         <input type="radio" id="redoublant" name="redoublant" value="0"
                                             class="transition-all duration-400 w-full cursor-pointer hover:scale-110 active:scale-90">
-                                        <span class="transition-all duration-400 text-base dark:text-white text-black font-bold">Non</span>
+                                        <span
+                                            class="transition-all duration-400 text-base dark:text-white text-black font-bold">Non</span>
                                     </span>
                                 </div>
                                 @error('redoublant')
@@ -115,7 +105,8 @@
                                 class="transition-all duration-400 cursor-pointer dark:bg-black bg-blue-950 dark:text-white text-emerald-500">
                                 Délégué</option>
                             <option value="Vice delegue"
-                                class="transition-all duration-400 cursor-pointer dark:bg-black bg-blue-950 dark:text-white text-emerald-500">Vice délégué
+                                class="transition-all duration-400 cursor-pointer dark:bg-black bg-blue-950 dark:text-white text-emerald-500">
+                                Vice délégué
                             </option>
                         </select>
                         <div class="transition-all duration-400 w-full flex justify-center items-center gap-3">

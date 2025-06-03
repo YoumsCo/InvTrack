@@ -1,4 +1,4 @@
-@vite(['resources/css/loaders/spinner.css', 'resources/js/loaders/spinner.js'])
+@vite(['resources/js/loaders/spinner.js'])
 
 <div id="spinner"
     class="transition-all duration-400 fixed top-0 left-0 w-screen h-screen flex justify-center items-center z-200 bg-black">
