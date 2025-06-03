@@ -33,3 +33,4 @@ Route::resource("/responsable", ResponsableController::class)->middleware(CheckA
 Route::resource("/etudiant", EtudiantsController::class)->middleware(CheckAuth::class)->names("etudiant");
 
 Route::get("/historique", [HistoriqueController::class, "index"])->middleware(CheckAuth::class)->name("historique");
+Route::post("/historique", [HistoriqueController::class, "update"])->middleware(CheckAuth::class);

@@ -22,7 +22,7 @@
 
         @include('layout.head')
 
-        <x-nav action="home" method="POST" page="home" />
+        <x-nav action="historique" page="historique" />
 
         <div class="transition-all duration-400 w-full flex justify-start items-center px-5">
             <h2
@@ -39,7 +39,16 @@
                         class="transition-all duration-400 relative sm:text-xl text-center before:transition-all before:duration-400 before:absolute before:-bottom-1 before:left-0 before:w-full before:h-[2px] before:bg-white after:transition-all after:duration-400 after:absolute after:-bottom-3 after:left-0 after:w-1/2 after:h-[2px] after:bg-white">
                         <span class="transition-all duration-400 flex justify-center items-center flex-nowrap gap-2">
                             <i class="fa-solid fa-calendar-day"></i>
-                            <span>Aujourd'hui</span>
+                            @php
+                                [$date, $time] = explode(' ', $data->created_at);
+                                [$year, $month, $day] = explode('-', $date);
+
+                                if (date('d') == $day) {
+                                    echo "Aujourd'hui";
+                                } else {
+                                    echo $date;
+                                }
+                            @endphp
                         </span>
                     </h2>
 
@@ -187,8 +196,9 @@
 
                         <div
                             class="transition-all duration-400 w-full flex sm:justify-end justify-center items-center pr-5">
-                            <form action="#" method="POST">
+                            <form action="{{ route('historique') }}" method="POST">
                                 @csrf
+                                <input type="hidden" name="materiel" value="{{ $data->libelle }}">
                                 <x-button type="submit" content="Restituer" />
                             </form>
                         </div>
