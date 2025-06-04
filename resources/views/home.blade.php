@@ -1,5 +1,3 @@
-{{-- @dd($img[2]) --}}
-
 @extends('layout.layout')
 @section('title')
     Accueil
@@ -52,7 +50,7 @@
                 <div id="filterContainer"
                     class="transition-all duration-400 w-full flex justify-start items-center pl-5 sm:pl-0 sm:gap-3 gap-10 overflow-hidden pr-5">
                     <a href="{{ route('home') }}"
-                        class="transition-all duration-500 relative flex justify-center items-center w-[150px] h-[40px] dark:bg-black bg-gray-200 dark:text-white text-black font-extrabold rounded-md cursor-pointer border-b-2 dark:border-white border-black active:scale-80 hover:scale-105 before:transition-all before:duration-500 before:absolute before:left-1/2 before:top-0 before:border-t-2 dark:before:border-white before:border-black before:w-0 hover:before:left-0 hover:before:w-full">Tout</a>
+                        class="transition-all duration-500 relative flex justify-center items-center w-[150px] h-[40px] dark:bg-black bg-gray-200 dark:text-white text-black font-extrabold rounded-md cursor-pointer border-b-2 dark:border-white border-black aspect-video active:scale-80 hover:scale-105 before:transition-all before:duration-500 before:absolute before:left-1/2 before:top-0 before:border-t-2 dark:before:border-white before:border-black before:w-0 hover:before:left-0 hover:before:w-full">Tout</a>
                     @foreach ($categories as $categorie)
                         <form action="{{ route('home') }}" method="POST"
                             class="transition-all duration-400 flex justify-center items-center">
@@ -80,10 +78,12 @@
 
         <div class="transition-all duration-400 sm:w-11/12 w-[95%] flex flex-col justify-start items-start gap-20 pl-5">
 
+            {{-- @dd($searchs) --}}
+
             @if ($searchs !== null)
-                <x-category icon="stethoscope" name="Resultats de recherche" :count="count($searchs)">
+                <x-category icon="list-check" name="Resultats de recherche" :count="count($searchs)">
                     @forelse ($searchs as $data)
-                        <x-materiel :image="asset((string)'img/'. $data->image)" name="{{ $data->libelle }}" indice="{{ $data->intitule }}" />
+                        <x-materiel :image="asset((string) 'storage/' . $data->image)" name="{{ $data->libelle }}" indice="{{ $data->intitule }}" />
                     @empty
                         <x-materiel :image="asset('img/Null.webp')" name="Aucun resultat 😥" />
                     @endforelse
@@ -112,14 +112,14 @@
                 <x-category icon="stethoscope" name="Santé" :count="$count_s">
                     @forelse ($sante as $s)
                         <x-materiel :image="asset((string) 'storage/' . $s->image)" name="{{ $s->libelle }}" />
-                            @empty
-                            <x-materiel :image="asset('img/Null.webp')" name="Aucun resultat 😥" />
+                    @empty
+                        <x-materiel :image="asset('img/Null.webp')" name="Aucun resultat 😥" />
                     @endforelse
                 </x-category>
 
 
                 {{-- Informatique --}}
-                
+
                 @php
                     $count_i = 0;
                     $informatique = [];
@@ -127,17 +127,17 @@
 
                 @foreach ($categories as $cat)
                     @foreach ($materiels as $mat)
-                    @if ($cat->id == $mat->categories_id && strtolower($cat->intitule) == 'informatique')
-                    @php
+                        @if ($cat->id == $mat->categories_id && strtolower($cat->intitule) == 'informatique')
+                            @php
                                 $count_i++;
                                 array_push($informatique, $mat);
                             @endphp
                         @endif
                     @endforeach
-                    @endforeach
-                    
-                    <x-category icon="laptop-code" name="Informatique" :count="$count_i">
-                        @forelse ($informatique as $i)
+                @endforeach
+
+                <x-category icon="laptop-code" name="Informatique" :count="$count_i">
+                    @forelse ($informatique as $i)
                         <x-materiel :image="asset((string) 'storage/' . $i->image)" name="{{ $s->libelle }}" />
                     @empty
                         <x-materiel :image="asset('img/Null.webp')" name="Aucun resultat 😥" />
@@ -165,7 +165,7 @@
 
                 <x-category icon="screwdriver-wrench" name="Technique" :count="$count_t">
                     @forelse ($technique as $t)
-                    <x-materiel :image="asset((string) 'storage/' . $t->image)" name="{{ $t->libelle }}" />
+                        <x-materiel :image="asset((string) 'storage/' . $t->image)" name="{{ $t->libelle }}" />
                     @empty
                         <x-materiel :image="asset('img/Null.webp')" name="Aucun resultat 😥" />
                     @endforelse

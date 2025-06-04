@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Materiels extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "id",
+        "etudiant_id",
+        "categories_id",
+        "matricule",
+        "libelle",
+        "etat",
+        "image",
+    ];
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EtudiantsController;
 use App\Http\Controllers\HistoriqueController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MaterielController;
 use App\Http\Controllers\OffloadController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\ResponsableController;
@@ -34,3 +35,5 @@ Route::resource("/etudiant", EtudiantsController::class)->middleware(CheckAuth::
 
 Route::get("/historique", [HistoriqueController::class, "index"])->middleware(CheckAuth::class)->name("historique");
 Route::post("/historique", [HistoriqueController::class, "update"])->middleware(CheckAuth::class);
+
+Route::resource("/materiel", MaterielController::class)->middleware(CheckAuth::class)->names("materiel");

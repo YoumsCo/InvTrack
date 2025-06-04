@@ -6,7 +6,7 @@
         <span class="transition-all duration-400 w-[10%] h-full flex justify-center items-center text-xl">
             <i class="fa-solid fa-info-circle"></i>
         </span>
-        <span class="transition-all duration-400 w-[80%] h-full flex justify-center items-center overflow-auto overscroll-none text-justify px-2">{{ $message }}</span>
+        <span class="transition-all duration-400 w-[80%] h-full flex justify-center items-center overflow-auto overscroll-none text-center px-2">{{ $message }}</span>
         <span id="close" class="transition-all duration-400 w-[10%] h-full flex justify-center items-center text-xl cursor-pointer hover:scale-105 active:scale-90">
             <i class="fa-solid fa-close"></i>
         </span>

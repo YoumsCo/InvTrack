@@ -30,7 +30,8 @@ class HomeController extends Controller
                 "materiels" => Materiels::where("etat", "Disponible")->latest()->get(),
                 "searchs" => Materiels::join("categories", function (JoinClause $join) use ($request) {
                     $join->on("categories.id", "=", "materiels.categories_id")
-                        ->where("categories.intitule", "like", (string) "%" . $request->search . "%");
+                        ->where("categories.intitule", "like", (string) "%" . $request->search . "%")
+                        ->where("materiels.etat", "=", "Disponible");
                 })->get(),
             ]);
         }

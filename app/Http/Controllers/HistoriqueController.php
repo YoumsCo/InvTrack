@@ -22,23 +22,18 @@ class HistoriqueController extends Controller
             return view("historique", [
                 "specialites" => Specialites::all(),
                 "datas" => Etudiants_cours::join("materiels", function (JoinClause $join) use ($request) {
-                    $join->on("materiels.etudiant_id", "=", "etudiants_cours.etudiants_id");
+                    $join->on("materiels.etudiant_id", "=", "etudiants_cours.etudiants_id")
+                        ->where("materiels.libelle", "like", (string) "%" . $request->search . "%")
+                    ;
                 })
-                    ->join("etudiants", function (JoinClause $join) use ($request) {
-                        $join->on("etudiants_cours.etudiants_id", "=", "etudiants.id")
-                            ->where("etudiants.nom", "like", (string) "%" . $request->search . "%")
-                            // ->orWhere("etudiants.prenom", "like", (string) "%" . $request->search . "%")
-                            // ->orWhere("etudiants.matricule", "like", (string) "%" . $request->search . "%")
-                            // ->orWhere("etudiants.statut", "like", (string) "%" . $request->search . "%")
-                        ;
-                    })
-                    ->join("cours", function (JoinClause $join) use ($request) {
-                        $join->on("etudiants_cours.cours_id", "=", "cours.id")
-                            ->where("cours.intitule", "like", (string) "%" . $request->search . "%")
-                        ;
-                    })
+                    ->join("etudiants", "etudiants_cours.etudiants_id", "=", "etudiants.id")
+                    ->join("cours", "etudiants_cours.cours_id", "=", "cours.id")
                     ->join("specialites", "specialites.id", "=", "etudiants.specialite_id")
-                    ->where("specialites.intitule", "like", (string) "%" . $request->search . "%")
+                    ->join("categories", function (JoinClause $join) use ($request) {
+                        $join->on("categories.id", "=", "materiels.categories_id")
+                        ;
+                    })
+                    ->select("materiels.*", "etudiants.*", "cours.intitule as cours", "etudiants_cours.*", "categories.intitule as categorie")
                     ->latest("etudiants_cours.created_at")
                     ->get(),
             ]);

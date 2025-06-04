@@ -200,7 +200,7 @@
                 </div>
             @empty
                 <div class="transition-all duration-400 w-full flex justify-center items-center">
-                    <span class="transition-all duration-400 text-xl animated-pulse">Vide</span>
+                    <span class="transition-all duration-400 text-xl dark:text-white text-black font-bold animated-pulse">Vide</span>
                 </div>
             @endforelse
 

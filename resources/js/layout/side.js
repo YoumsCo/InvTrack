@@ -2,12 +2,14 @@ const closeSide = document.querySelector("#close-side");
 const openSide = document.querySelector("#open-side");
 
 const toggleSide = (show = false, load = false) => {
-    if (!show) {
-        const side = document.querySelector("#side-container");
-        const sideLogo = document.querySelector("#side-logo");
-        const sideLinkText = document.querySelectorAll(".side-link-text");
-        const sideFooterText = document.querySelector("#side-footer-text");
+    const side = document.querySelector("#side-container");
+    const sideLogo = document.querySelector("#side-logo");
+    const sideLinkText = document.querySelectorAll(".side-link-text");
+    const sideFooterText = document.querySelector("#side-footer-text");
+    const dispear = document.querySelectorAll(".disapear");
 
+    if (!show) {
+        
         side.classList.replace("w-50", "w-14");
         sideLogo.classList.add("hidden");
         closeSide.classList.add("hidden");
@@ -16,16 +18,15 @@ const toggleSide = (show = false, load = false) => {
         });
         sideFooterText.classList.replace("flex", "hidden");
         openSide.classList.remove("hidden");
-
+        dispear.forEach(child => {
+            child.classList.add("hidden");
+        });
+        
         if (!load) {
             document.cookie = `toggle-side=hide; epxires=${new Date(2026, 12, 31)}; path=/; sameSite=strict`;
         }
         return;
     }
-    const side = document.querySelector("#side-container");
-    const sideLogo = document.querySelector("#side-logo");
-    const sideLinkText = document.querySelectorAll(".side-link-text");
-    const sideFooterText = document.querySelector("#side-footer-text");
 
     side.classList.replace("w-14", "w-50");
     sideLogo.classList.remove("hidden");
@@ -35,6 +36,9 @@ const toggleSide = (show = false, load = false) => {
     });
     sideFooterText.classList.replace("hidden", "flex");
     openSide.classList.add("hidden");
+    dispear.forEach(child => {
+        child.classList.remove("hidden");
+    });
 
     if (!load) {
         document.cookie = `toggle-side=show; epxires=${new Date(2026, 12, 31)}; path=/; sameSite=strict`;

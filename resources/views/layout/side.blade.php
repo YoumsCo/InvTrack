@@ -1,7 +1,7 @@
 @vite(["resources/js/layout/side.js"])
 
 <div id="side-container"
-    class="transition-all duration-400 sm:relative fixed top-0 left-0 w-50 h-full flex flex-col justify-center items-center bg-black/60 border-r border-white z-30">
+    class="transition-all duration-400 sm:relative fixed top-0 left-0 w-50 h-full flex flex-col justify-center items-center dark:bg-black/60 sm:bg-blue-950 bg-blue-950/60 border-r border-white z-30">
     <div class="transition-all duration-400 w-full h-[20%] flex justify-center items-center border-b border-gray-700 p-2">
         <a href="{{ route('home') }}" id="side-logo" class="w-[150px] h-[90px]">
             <img src="{{ asset('img/INSAM.jpg') }}" alt="Logo"
@@ -32,7 +32,7 @@
             <span class="side-link-text">Accueil</span>
         </a>
         <a href="{{ route("responsable.index") }}"
-            class="transition-all duration-400 w-full min-h-10 border-b-2 border-white flex justify-start items-center gap-3 font-bold px-2 hover:text-black hover:bg-white/90 active:scale-90">
+            class="disapear transition-all duration-400 w-full min-h-10 border-b-2 border-white flex justify-start items-center gap-3 font-bold px-2 hover:text-black hover:bg-white/90 active:scale-90">
             <i class="fa-solid fa-user-tie"></i>
             <span class="side-link-text">Responsable</span>
         </a>
@@ -40,6 +40,11 @@
             class="transition-all duration-400 w-full min-h-10 border-b-2 border-white flex justify-start items-center gap-3 font-bold px-2 hover:text-black hover:bg-white/90 active:scale-90">
             <i class="fa-solid fa-user-alt"></i>
             <span class="side-link-text">Etudiant</span>
+        </a>
+        <a href="{{ route("materiel.index") }}"
+            class="disapear transition-all duration-400 w-full min-h-10 border-b-2 border-white flex justify-start items-center gap-3 font-bold px-2 hover:text-black hover:bg-white/90 active:scale-90">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <span class="side-link-text">Matériel</span>
         </a>
         <a href="{{ route("historique") }}"
             class="transition-all duration-400 w-full min-h-10 border-b-2 border-white flex justify-start items-center gap-3 font-bold px-2 hover:text-black hover:bg-white/90 active:scale-90">
