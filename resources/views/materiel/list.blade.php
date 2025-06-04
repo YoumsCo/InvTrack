@@ -36,7 +36,7 @@
                     class="transition-all duration-400 relative w-full sm:h-60 h-80 flex justify-center items-center rounded-md my-10 p-5 dark:bg-transparent bg-black/10 before:tranition-all before:duration-400 before:absolute before:left-0 before:top-0 before:w-5 before:h-5 before:border-l-2 before:border-t-2 dark:before:border-white before:border-blue-950 after:tranition-all after:duration-400 after:absolute after:right-0 after:bottom-0 after:w-5 after:h-5 after:border-r-2 after:border-b-2 dark:after:border-white after:border-blue-950">
                     <div class="transition-all duration-400 sm:w-1/3 w-full h-full rounded-s-md">
                         <img src="{{ asset((string) 'storage/' . $mat->image) }}" alt="Image"
-                            class="transition-all duration-400 w-full h-full aspect-video object-center rounded-s-md">
+                            class="transition-all duration-400 w-full h-full aspect-video object-center rounded-s-md mix-blend-multiply">
                     </div>
                     <div
                         class="transition-all duration-400 sm:static absolute left-0 top-0 sm:w-2/3 w-full h-full flex flex-col justify-center items-start sm:gap-10 gap-2 p-5 sm:bg-transparent dark:bg-black/80 bg-white/80">

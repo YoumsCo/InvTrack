@@ -16,6 +16,10 @@
 
         <x-nav action="historique" page="historique" />
 
+        <div class="transition-all duration-400 sm:w-11/12 w-[96%] flex justify-start items-center gap-5 pl-5">
+            <x-a :href="route('historique')" text="Tout" />
+        </div>
+
         <div class="transition-all duration-400 w-full flex justify-start items-center px-5">
             <h2
                 class="transition-all duration-400 relative sm:text-3xl text-xl text-center dark:text-white text-blue-950 font-bold before:transition-all before:duration-400 before:absolute before:-bottom-1 before:left-0 before:w-full before:h-[2px] dark:before:bg-white before:bg-blue-950 after:transition-all after:duration-400 after:absolute after:-bottom-3 after:left-0 after:w-1/2 after:h-[2px] dark:after:bg-white after:bg-blue-950">
@@ -200,7 +204,8 @@
                 </div>
             @empty
                 <div class="transition-all duration-400 w-full flex justify-center items-center">
-                    <span class="transition-all duration-400 text-xl dark:text-white text-black font-bold animated-pulse">Vide</span>
+                    <span
+                        class="transition-all duration-400 text-xl dark:text-white text-black font-bold animated-pulse">Vide</span>
                 </div>
             @endforelse
 
