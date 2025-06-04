@@ -36,13 +36,27 @@
                         <span class="transition-all duration-400 flex justify-center items-center flex-nowrap gap-2">
                             <i class="fa-solid fa-calendar-day"></i>
                             @php
+                                $monthTab = [
+                                    'Janvier',
+                                    'Février',
+                                    'Mars',
+                                    'Avril',
+                                    'Mai',
+                                    'Juin',
+                                    'Juillet',
+                                    'Août',
+                                    'Septembre',
+                                    'Octobre',
+                                    'Novembre',
+                                    'Décembre',
+                                ];
                                 [$date, $time] = explode(' ', $data->created_at);
                                 [$year, $month, $day] = explode('-', $date);
 
                                 if (date('d') == $day) {
                                     echo "Aujourd'hui";
                                 } else {
-                                    echo $date;
+                                    echo (string) 'Le ' . $day . ' ' . $monthTab[$month - 1] . ' ' . $year;
                                 }
                             @endphp
                         </span>

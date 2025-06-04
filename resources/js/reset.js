@@ -13,6 +13,6 @@ document.querySelector("#eye").addEventListener("click", function () {
 });
 
 const typed = new Typed('#text', {
-    strings: ['Entrez votre matricule', 'Votre mot de passe', "Confirmez-le", "Bref ^500 changez votre mot de passe"],
+    strings: ['Entrez votre matricule', 'Votre mot de passe', "Confirmez-le", "^500 Changez votre mot de passe"],
     typeSpeed: 50,
 });

@@ -1,7 +1,7 @@
 import Typed from 'typed.js';
 
 const typed = new Typed('#text', {
-    strings: ['Entrez son nom', 'Son prénom', "Sa date de naissance", "Bref ^500 modifiez-le"],
+    strings: ['Entrez son nom', 'Son prénom', "Sa date de naissance", "^500 Modifiez-le"],
     typeSpeed: 50,
 });
 
