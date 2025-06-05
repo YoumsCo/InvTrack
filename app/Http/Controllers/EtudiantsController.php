@@ -20,6 +20,7 @@ class EtudiantsController extends Controller
         if ($request->search) {
             return view('etudiant.list', [
                 'etudiants' => Etudiants::where("matricule", "like", "%{$request->search}%")
+                    ->orWhere("nom", "like", "%{$request->search}%")
                     ->orWhere("prenom", "like", "%{$request->search}%")
                     ->orWhere("date_naissance", "like", "%{$request->search}%")
                     ->orWhere("lieu", "like", "%{$request->search}%")
@@ -28,12 +29,16 @@ class EtudiantsController extends Controller
                     ->orWhere("statut", "like", "%{$request->search}%")
                     ->simplePaginate(5),
                 'responsables' => Responsables::all(),
+                'specialites' => Specialites::all(),
+                'paginate' => false,
+                
             ]);
         }
         return view('etudiant.list', [
             'etudiants' => Etudiants::latest()->simplePaginate(5),
             'responsables' => Responsables::all(),
             'specialites' => Specialites::all(),
+            'paginate' => true,
         ]);
     }
 

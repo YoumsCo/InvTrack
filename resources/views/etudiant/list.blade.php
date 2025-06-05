@@ -17,7 +17,9 @@
             <x-a :href="route('etudiant.create')" text="Ajouter un étudiant" />
         </div>
 
-        {{ $etudiants->links() }}
+        @if ($paginate == true)
+            {{ $etudiants->links() }}
+        @endif
 
         <div class="transition-all duration-400 sm:w-11/12 w-[96%] flex flex-col justify-start items-start px-5">
             <div class="transition-all duration-400 w-full flex justify-start items-center">
@@ -187,7 +189,9 @@
             @endforelse
         </div>
 
-        {{ $etudiants->links() }}
+        @if ($paginate == true)
+            {{ $etudiants->links() }}
+        @endif
 
         @include('layout.footer')
     </x-container>
