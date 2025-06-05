@@ -9,7 +9,7 @@ const toggleSide = (show = false, load = false) => {
     const dispear = document.querySelectorAll(".disapear");
 
     if (!show) {
-        
+
         side.classList.replace("w-50", "w-14");
         sideLogo.classList.add("hidden");
         closeSide.classList.add("hidden");
@@ -21,7 +21,7 @@ const toggleSide = (show = false, load = false) => {
         dispear.forEach(child => {
             child.classList.add("hidden");
         });
-        
+
         if (!load) {
             document.cookie = `toggle-side=hide; epxires=${new Date(2026, 12, 31)}; path=/; sameSite=strict`;
         }

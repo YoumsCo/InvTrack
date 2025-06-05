@@ -6,15 +6,15 @@
         class="transition-all duration-400 w-full h-[20%] flex justify-center items-center border-b border-gray-700 p-2">
         <a href="{{ route('home') }}" id="side-logo" class="w-[150px] h-[90px]">
             @if (Auth::user()->photo != null)
-                <img src="{{ asset('storage/' . Auth::user()->photo) }}" alt="Logo"
+                <img src="{{ asset('storage/' . Auth::user()->photo) }}" alt="Photo"
                     class="transition-400 duration-400 w-full h-full object-center rounded-full aspect-video">
             @else
-                <img src="{{ asset('img/use.jpg') }}" alt="Logo"
+                <img src="{{ asset('img/use.png') }}" alt="Photo"
                     class="transition-400 duration-400 w-full h-full object-center rounded-full aspect-video mix-blend-multiply">
             @endif
         </a>
         <div class="transition-all duration-400 w-full h-full flex flex-col justify-center items-center pr-3">
-            <div class="transition-all duration-400 w-full h-1/2 flex justify-end items-start pr-3">
+            <div class="transition-all duration-400 relative w-full h-1/2 flex justify-end items-start pr-3 border border-emerald-400">
                 <span id="close-side"
                     class="transition-all duration-400 text-2xl translate-x-3 cursor-pointer hover:scale-105 active:scale-90">
                     <i class="fa-solid fa-close"></i>
