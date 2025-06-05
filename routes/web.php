@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EtudiantsController;
 use App\Http\Controllers\HistoriqueController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\OffloadController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\ResponsableController;
 use App\Http\Controllers\SignOutController;
+use App\Http\Middleware\Admin;
 use App\Http\Middleware\CheckAuth;
 use Illuminate\Support\Facades\Route;
 
@@ -37,3 +39,5 @@ Route::get("/historique", [HistoriqueController::class, "index"])->middleware(Ch
 Route::post("/historique", [HistoriqueController::class, "update"])->middleware(CheckAuth::class);
 
 Route::resource("/materiel", MaterielController::class)->middleware(CheckAuth::class)->names("materiel");
+
+Route::resource("/administrateur", AdminController::class)->names("admin")->middleware(Admin::class);

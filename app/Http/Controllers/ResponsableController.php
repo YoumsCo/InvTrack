@@ -37,21 +37,6 @@ class ResponsableController extends Controller
         ]);
     }
 
-    // private function countEach()
-    // {
-    //     $datasR = Responsable::all();
-    //     $datasS = Specialites::all();
-    //     $table = [];
-
-    //     foreach ($datasR as $dataR) {
-    //         foreach ($datasS as $dataS) {
-    //             if ($dataR->id == $dataS->responsable_id) {
-
-    //             }
-    //         }
-    //     }
-    // }
-
     /**
      * Show the form for creating a new resource.
      */

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Http\Enum\Enum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -28,7 +29,7 @@ class UserFactory extends Factory
             "nom" => env("ADMIN_DEFAULT_NAME"),
             "telephone" => 237690552385,
             "password" => env("ADMIN_DEFAULT_PASSWORD"),
-            "role" => "Super Admin",
+            "role" => Enum::superAdmin,
         ];
     }
 }

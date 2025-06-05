@@ -13,6 +13,6 @@ document.querySelector("#eye").addEventListener("click", function () {
 });
 
 const typed = new Typed('#text', {
-    strings: ['Connectez-vous avec votre nom', 'Votre mot de passe', "^500 Authentifiez-vous"],
+    strings: ['Connectez-vous avec votre nom', 'Votre mot de passe', "...^500 Authentifiez-vous"],
     typeSpeed: 50,
 });

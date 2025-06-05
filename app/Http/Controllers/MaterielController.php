@@ -26,13 +26,28 @@ class MaterielController extends Controller
                     ->select("materiels.*", "categories.intitule as categorie")
                     ->latest()
                     ->simplePaginate(5),
+                "filter" => ["Disponible", "Indisponible", "Défecteux", "En maintenance"],
+                "paginate" => false,
+            ]);
+        }
+        if ($request->action == "filter") {
+            return view("materiel.list", [
+                "materiels" => Materiels::join("categories", "categories.id", "=", "materiels.categories_id")
+                    ->where("materiels.etat", $request->search)
+                    ->select("materiels.*", "categories.intitule as categorie")
+                    ->latest()
+                    ->get(),
+                "filter" => ["Disponible", "Indisponible", "Defecteux", "En maintenance"],
+                "paginate" => false,
             ]);
         }
         return view("materiel.list", [
             "materiels" => Materiels::join("categories", "categories.id", "=", "materiels.categories_id")
-                ->select("materiels.*", "categories.intitule as categorie")
-                ->latest()
-                ->simplePaginate(5),
+            ->select("materiels.*", "categories.intitule as categorie")
+            ->latest()
+            ->simplePaginate(5),
+            "filter" => ["Disponible", "Indisponible", "Défecteux", "En maintenance"],
+            "paginate" => true,
         ]);
     }
 

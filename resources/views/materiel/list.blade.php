@@ -3,6 +3,7 @@
     Liste des responsables
 @endsection
 @section('css_js')
+    @vite(['resources/js/materiel/list.js'])
 @endsection
 @section('body')
     <x-container>
@@ -15,11 +16,48 @@
         <x-nav action="materiel.index" page="materiel_list" />
 
         <div class="transition-all duration-400 sm:w-11/12 w-[96%] flex justify-start items-center gap-5 pl-5">
-            <x-a :href="route('materiel.index')" text="Tout" />
             <x-a :href="route('materiel.create')" text="Ajouter un matériel" />
         </div>
 
-        {{ $materiels->links() }}
+        <div
+            class="transition-all duration-400 sticky top-18 left-0 w-[98%] flex flex-col justify-center items-start gap-3 dark:bg-black/80 bg-white/80 z-5 px-5">
+            <div class="transition-all duration-400 w-full flex justify-start items-center gap-5">
+                <span class="mr-2 sm:text-xl text-base text-nowrap dark:text-white text-black"><i
+                        class="fa-solid fa-filter mr-5"></i>Filtre /
+                    matériel
+                    : ...</span>
+                <div id="filterContainer"
+                    class="transition-all duration-400 w-full flex justify-start items-center pl-5 sm:pl-0 sm:gap-3 gap-10 overflow-hidden pr-5">
+                    <a href="{{ route('materiel.index') }}"
+                        class="transition-all duration-500 relative flex justify-center items-center w-[150px] h-[40px] dark:bg-black bg-gray-200 dark:text-white text-black font-extrabold rounded-md cursor-pointer border-b-2 dark:border-white border-black aspect-video active:scale-80 hover:scale-105 before:transition-all before:duration-500 before:absolute before:left-1/2 before:top-0 before:border-t-2 dark:before:border-white before:border-black before:w-0 hover:before:left-0 hover:before:w-full">Tout</a>
+                    @foreach ($filter as $value)
+                        <form action="{{ route('materiel.index') }}" method="GET"
+                            class="transition-all duration-400 flex justify-center items-center">
+                            @csrf
+                            <input type="hidden" name="search" value="{{ $value }}">
+                            <input type="hidden" name="action" value="filter">
+                            <input type="hidden" name="page" value="list">
+                            <button type="submit"
+                                class="transition-all duration-500 relative flex justify-center items-center w-[150px] h-[40px] dark:bg-black bg-gray-200 dark:text-white text-black font-extrabold rounded-md cursor-pointer border-b-2 dark:border-white border-black active:scale-80 hover:scale-105 before:transition-all before:duration-500 before:absolute before:left-1/2 before:top-0 before:border-t-2 dark:before:border-white before:border-black before:w-0 hover:before:left-0 hover:before:w-full">
+                                {{ $value }}
+                            </button>
+                        </form>
+                    @endforeach
+                </div>
+            </div>
+            <div class="transition-all duration-400 w-full hidden max-[600px]:flex justify-center items-center gap-7">
+                <i id="filter-left"
+                    class="fa fa-chevron-left transition-all duration-400 dark:text-white text-black hover:scale-105 active:scale-85 cursor-pointer"
+                    style="font-size: 17pt;"></i>
+                <i id="filter-right"
+                    class="fa fa-chevron-right transition-all duration-400 dark:text-white text-black hover:scale-105 active:scale-85 cursor-pointer"
+                    style="font-size: 17pt;"></i>
+            </div>
+        </div>
+
+        @if ($paginate == true)
+            {{ $materiels->links() }}
+        @endif
 
         <div class="transition-all duration-400 sm:w-11/12 w-[96%] flex flex-col justify-start items-start px-5">
             <div class="transition-all duration-400 w-full flex justify-start items-center">
@@ -108,7 +146,9 @@
             @endforelse
         </div>
 
-        {{ $materiels->links() }}
+        @if ($paginate == true)
+            {{ $materiels->links() }}
+        @endif
 
         @include('layout.footer')
     </x-container>

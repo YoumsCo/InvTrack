@@ -22,8 +22,7 @@ class MaterielsFactory extends Factory
             "categories_id" => fake()->numberBetween(1, 4),
             "matricule" => fake()->unique()->sentence(1),
             "libelle" => fake()->sentence(1),
-            "etat" => fake()->randomElement(["Disponible", "En maintenance", "Défectueux"]),
-            // "image" => fake()->randomElement(["i.jpg", "e.png"]),
+            "etat" => fake()->randomElement(["Disponible", "Defecteux", "En maintenance"]),
             "image" => fake()->randomElement(FilesController::img()),
         ];
     }

@@ -41,7 +41,7 @@
         <hr class="transition-all duration-400 w-full h-1 dark:bg-white bg-black">
 
         <div
-            class="transition-all duration-400 sticky top-18 left-0 w-[98%] flex flex-col justify-center items-start gap-3 dark:bg-black/80 bg-white/80 z-5">
+            class="transition-all duration-400 sticky top-18 left-0 w-[98%] flex flex-col justify-center items-start gap-3 dark:bg-black/80 bg-white/80 z-5 px-5">
             <div class="transition-all duration-400 w-full flex justify-start items-center gap-5">
                 <span class="mr-2 sm:text-xl text-base text-nowrap dark:text-white text-black"><i
                         class="fa-solid fa-filter mr-5"></i>Filtre /
