@@ -14,7 +14,7 @@
             @endif
         </a>
         <div class="transition-all duration-400 w-full h-full flex flex-col justify-center items-center pr-3">
-            <div class="transition-all duration-400 relative w-full h-1/2 flex justify-end items-start pr-3 border border-emerald-400">
+            <div class="transition-all duration-400 relative w-full h-1/2 flex justify-end items-start pr-3">
                 <span id="close-side"
                     class="transition-all duration-400 text-2xl translate-x-3 cursor-pointer hover:scale-105 active:scale-90">
                     <i class="fa-solid fa-close"></i>
