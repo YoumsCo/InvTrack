@@ -83,7 +83,7 @@
             @if ($searchs !== null)
                 <x-category icon="list-check" name="Resultats de recherche" :count="count($searchs)">
                     @forelse ($searchs as $data)
-                        <x-materiel :image="asset((string) 'storage/' . $data->image)" name="{{ $data->libelle }}" indice="{{ $data->intitule }}" />
+                        <x-materiel :image="asset((string) 'storage/' . $data->image)" name="{{ $data->libelle }}" />
                     @empty
                         <x-materiel :image="asset('img/Null.webp')" name="Aucun resultat 😥" />
                     @endforelse
