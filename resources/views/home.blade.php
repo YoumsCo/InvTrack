@@ -21,7 +21,7 @@
             </div>
             <div id="caroussel" class="transition-all duration-400 sm:flex hidden w-1/2 h-full">
                 <img src="{{ asset('img/landing_2.jpg') }}" alt="Image"
-                    class="transition-all duration-400 aspect-video w-full h-full object-center mix-blend-multiply">
+                    class="transition-all duration-400 aspect-video w-full h-full object-center">
             </div>
             <div
                 class="transition-all duration-400 sm:w-1/2 w-full h-full flex flex-col justify-center items-start dark:bg-black/80 gap-5 p-10">
